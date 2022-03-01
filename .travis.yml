@@ -2,7 +2,7 @@ sudo: required
 services: 
   - docker
 before_install: 
-  - cd client && docker build -t wildanazz/client -f Dockerfile.dev .
+  - docker build -t wildanazz/client -f client/Dockerfile.dev client/ --no-cache
 script: 
   - echo done
 deploy: 
