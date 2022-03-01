@@ -4,5 +4,4 @@ services:
 before_install: 
   - docker build -t wildanazz/client ./client
 script: 
-  - docker run wildanazz/client
-  - docker ps
+  - echo Done built image!
