@@ -2,9 +2,9 @@ sudo: required
 services: 
   - docker
 before_install: 
-  - docker build -t wildanazz/client -f client/Dockerfile.dev client/ --no-cache
+  - docker build -t wildanazz/client -f client/Dockerfile.dev client/
 script: 
-  - echo Code 0
+  - echo code 0
 deploy: 
   provider: elasticbeanstalk
   access_key_id: "$ACCESS_KEY_ID"
