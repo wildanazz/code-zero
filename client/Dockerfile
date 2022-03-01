@@ -1,0 +1,9 @@
+FROM node:17.6.0-alpine
+WORKDIR /home/node/app
+COPY package.json ./
+RUN npm install
+COPY ./ ./
+RUN npm build
+
+FROM nginx
+COPY --from=0 /home/node/app/build /usr/share/nginx/html
