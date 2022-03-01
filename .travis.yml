@@ -4,7 +4,7 @@ services:
 before_install: 
   - docker build -t wildanazz/client -f client/Dockerfile.dev client/ --no-cache
 script: 
-  - echo done
+  - echo Code 0
 deploy: 
   provider: elasticbeanstalk
   access_key_id: "$ACCESS_KEY_ID"
