@@ -11,7 +11,7 @@ deploy:
   secret_access_key: "$SECRET_ACCESS_KEY"
   region: 'ap-southeast-2'
   app: 'code-zero'
-  env: 'czenv'
+  env: 'Codezero-env'
   bucket_name: 'elasticbeanstalk-ap-southeast-2-415040452715'
   bucket_path: 'code-zero'
   on:
