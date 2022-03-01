@@ -4,4 +4,14 @@ services:
 before_install: 
   - docker build -t wildanazz/client ./client
 script: 
-  - echo Done built image!
+  - echo done
+deploy: 
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "$ACCESS_KEY_ID"
+  secret_access_key:
+    secure: "$SECRET_ACCESS_KEY"
+  region: 'ap-southeast-2'
+  app: 'code-zero'
+  env: 'code-zero-env'
+  bucket_name: 'elasticbeanstalk-ap-southeast-2-415040452715'
