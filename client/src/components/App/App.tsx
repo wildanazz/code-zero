@@ -1,6 +1,6 @@
 import Particles from 'react-tsparticles';
 import logo from './logo.svg';
-import './App.css';
+import './App.sass';
 
 function App(): JSX.Element {
   return (
@@ -9,7 +9,7 @@ function App(): JSX.Element {
         options={{
           background: {
             color: {
-              value: '#F3E600',
+              value: '#FFFFFF',
             },
           },
           fpsLimit: 120,
@@ -91,7 +91,6 @@ function App(): JSX.Element {
             position: 'relative',
           }}
         >
-          <h1 style={{ fontFamily: 'fantasy', color: '#14161E' }}>Welcome!</h1>
           <h2 style={{ fontFamily: 'inherit', color: '#14161E' }}>
             Available Soon!
           </h2>
