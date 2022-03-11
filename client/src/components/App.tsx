@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Background from './Background/Background';
+import Curtain from './Curtain/Curtain';
 import Identity from './Identity/Identity';
 import Toggle from './Toggle/Toggle';
 import Main from './Main/Main';
@@ -7,8 +8,9 @@ import './App.scss';
 
 function App(): JSX.Element {
   return (
-    <div className="App">
+    <div className="app">
       <Background />
+      <Curtain />
       <Identity />
       <Toggle />
       <Routes>
