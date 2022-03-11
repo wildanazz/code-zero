@@ -1,9 +1,9 @@
 import Particles from 'react-tsparticles';
+import './Background.scss';
 
 function Background(): JSX.Element {
   return (
     <Particles
-      style={{ position: 'fixed' }}
       options={{
         background: {
           color: {
