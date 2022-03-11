@@ -1,0 +1,15 @@
+.Navbar {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 100vh;
+  left: 0px;
+}
+
+.navigation-menu {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  text-align: center;
+  pointer-events: none;
+}
