@@ -11,7 +11,7 @@ function Toggle(): JSX.Element {
   );
   return (
     <div
-      className="Toggle"
+      className="toggle"
       role="menuitem"
       tabIndex={0}
       onClick={() => setIsActivated(!isActivated)}
