@@ -1,0 +1,31 @@
+$color: #14161e;
+
+.Toggle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  top: 36px;
+  right: 36px;
+  border-radius: 50px;
+
+  :hover {
+    color: #ffffff;
+    background-color: #14161e;
+    border-radius: 50px;
+    transition: all 0.2s ease-in;
+  }
+}
+
+.icon-menu {
+  font-size: 3rem;
+  color: $color;
+  border-radius: 50px;
+}
+
+.icon-close {
+  font-size: 3rem;
+  color: $color;
+  border-radius: 50px;
+}
