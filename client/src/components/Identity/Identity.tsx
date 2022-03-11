@@ -4,9 +4,9 @@ import './Identity.scss';
 
 function Identity(): JSX.Element {
   return (
-    <Link className="Identity" to="/">
-      <img src={logo} alt="logo" className="logo-mark" />
-      <h1 className="logo-type">CodeZero</h1>
+    <Link className="identity" to="/">
+      <img src={logo} alt="logo" id="logo-mark" />
+      <h1 id="logo-type">CodeZero</h1>
     </Link>
   );
 }

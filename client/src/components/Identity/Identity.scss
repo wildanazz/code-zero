@@ -1,15 +1,15 @@
 $color: #14161e;
 
-.Identity {
+.identity {
   position: fixed;
   height: 96px;
-  width: 324px;
+  width: 316px;
   top: 16px;
   left: 16px;
-  right: 16px;
+  z-index: 3;
 }
 
-.logo-mark {
+#logo-mark {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -27,7 +27,7 @@ $color: #14161e;
   }
 }
 
-.logo-type {
+#logo-type {
   position: absolute;
   left: 96px;
   color: $color;
@@ -36,7 +36,7 @@ $color: #14161e;
   font-family: bungee, sans-serif;
   font-weight: 800;
   font-style: normal;
-  animation: move 8.2s ease-in infinite;
+  animation: move 8.2s linear infinite;
 }
 
 @keyframes move {
