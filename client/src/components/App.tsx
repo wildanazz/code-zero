@@ -1,22 +1,23 @@
-import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
 import Background from './Background/Background';
-import Curtain from './Curtain/Curtain';
+import Navbar from './Navbar/Navbar';
 import Identity from './Identity/Identity';
-import Toggle from './Toggle/Toggle';
-import Main from './Main/Main';
-import './App.scss';
+import Home from './Main/Home';
+
+const StyledApp = styled.div`
+  position: relative;
+  height: 100vh;
+  width: 100%;
+`;
 
 function App(): JSX.Element {
   return (
-    <div className="app">
+    <StyledApp>
       <Background />
-      <Curtain />
+      <Navbar />
+      <Home />
       <Identity />
-      <Toggle />
-      <Routes>
-        <Route path="/" element={<Main />} />
-      </Routes>
-    </div>
+    </StyledApp>
   );
 }
 
