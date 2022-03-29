@@ -1,5 +1,4 @@
 import Particles from 'react-tsparticles';
-import './Background.scss';
 
 function Background(): JSX.Element {
   return (
@@ -7,7 +6,7 @@ function Background(): JSX.Element {
       options={{
         background: {
           color: {
-            value: '#ffffff',
+            value: '#111111',
           },
         },
         fpsLimit: 120,
@@ -41,14 +40,7 @@ function Background(): JSX.Element {
         },
         particles: {
           color: {
-            value: '#14161e',
-          },
-          links: {
-            color: '#14161e',
-            distance: 150,
-            enable: false,
-            opacity: 0.5,
-            width: 1,
+            value: '#ffcb74',
           },
           collisions: {
             enable: true,
