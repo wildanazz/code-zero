@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Background from './Background/Background';
 import Navbar from './Navbar/Navbar';
 import Identity from './Identity/Identity';
-import Home from './Main/Home';
+import Home from './Home/Home';
 
 const StyledApp = styled.div`
   position: relative;
