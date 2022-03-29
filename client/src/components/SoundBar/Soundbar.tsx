@@ -2,6 +2,10 @@ import { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import music from './audio/samui-sunrise.wav';
 
+interface SoundbarProps {
+  isActivated: boolean;
+}
+
 const StyledSoundBar = styled.div`
   display: flex;
   justify-content: center;
@@ -40,11 +44,12 @@ const play = keyframes`
     transform:scaleY(1);
 }`;
 
-const Line = styled.span<{ click: boolean }>`
+const Line = styled.span<SoundbarProps>`
   background: #ffcb74;
-  border: 1px solid ${(props) => props.theme.body};
+  border: 1px solid rgba(47, 47, 47, 1);
   animation: ${play} 1s ease infinite;
-  animation-play-state: ${(props) => (props.click ? 'running' : 'paused')};
+  animation-play-state: ${({ isActivated }) =>
+    isActivated ? 'running' : 'paused'};
   height: 1rem;
   width: 2px;
   margin: 0 0.1rem;
@@ -52,13 +57,13 @@ const Line = styled.span<{ click: boolean }>`
 
 function SoundBar(): JSX.Element {
   const ref = useRef<HTMLAudioElement>(null);
-  const [click, setClick] = useState(false);
+  const [isActivated, setIsActivated] = useState(false);
 
   const handleClick = (): void => {
-    setClick(!click);
+    setIsActivated(!isActivated);
 
     if (ref.current !== null) {
-      if (!click) {
+      if (!isActivated) {
         ref.current.play();
       } else {
         ref.current.pause();
@@ -68,11 +73,11 @@ function SoundBar(): JSX.Element {
 
   return (
     <StyledSoundBar onClick={() => handleClick()}>
-      <Line click={click} />
-      <Line click={click} />
-      <Line click={click} />
-      <Line click={click} />
-      <Line click={click} />
+      <Line isActivated={isActivated} />
+      <Line isActivated={isActivated} />
+      <Line isActivated={isActivated} />
+      <Line isActivated={isActivated} />
+      <Line isActivated={isActivated} />
       <audio src={music} ref={ref} loop>
         <track kind="captions" />
       </audio>
