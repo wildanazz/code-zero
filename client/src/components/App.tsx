@@ -3,6 +3,7 @@ import Background from './Background/Background';
 import Navbar from './Navbar/Navbar';
 import Identity from './Identity/Identity';
 import Home from './Home/Home';
+import SoundBar from './SoundBar/Soundbar';
 
 const StyledApp = styled.div`
   position: relative;
@@ -17,6 +18,7 @@ function App(): JSX.Element {
       <Navbar />
       <Home />
       <Identity />
+      <SoundBar />
     </StyledApp>
   );
 }
