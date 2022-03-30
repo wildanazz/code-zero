@@ -1,35 +1,44 @@
-import './Home.scss';
+import styled from 'styled-components';
+import ContentCard from '../ContentCard/ContentCard';
+import ContentDetail from '../ContentDetail/ContentDetail';
 
-function Main(): JSX.Element {
+const StyledHome = styled.div`
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: 0 20px;
+  margin: auto;
+  max-width: 60.625em;
+  overflow-x: hidden;
+`;
+
+function Home(): JSX.Element {
   return (
-    <div className="layout">
-      <div className="container">
-        <div className="header" />
-        <div className="content-body">
-          <div className="page-content">
-            <div className="mission-content">
-              <div className="mission-phases">
-                <div className="our-mission">
-                  <p className="paragraph">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with
-                    the release of Letraset sheets containing Lorem Ipsum
-                    passages, and more recently with desktop publishing software
-                    like Aldus PageMaker including versions of Lorem Ipsum.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <StyledHome>
+      <ContentCard
+        styles={{
+          position: 'relative',
+          height: '100vh',
+          width: '100%',
+        }}
+      >
+        <ContentDetail
+          styles={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+          }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </ContentDetail>
+      </ContentCard>
+      <ContentCard />
+    </StyledHome>
   );
 }
 
-export default Main;
+export default Home;
