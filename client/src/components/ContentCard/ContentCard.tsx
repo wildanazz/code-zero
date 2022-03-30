@@ -1,11 +1,7 @@
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 interface ContentCardProps {
-  styles?: {
-    position?: string;
-    height?: string;
-    width?: string;
-  };
+  styles?: CSSProperties;
   children?: React.ReactNode;
 }
 
@@ -20,7 +16,7 @@ function ContentCard({ styles, children }: ContentCardProps): JSX.Element {
 }
 
 ContentCard.defaultProps = {
-  styles: {},
+  styles: null,
   children: null,
 };
 

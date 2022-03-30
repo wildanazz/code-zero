@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import ContentCard from '../ContentCard/ContentCard';
 import ContentDetail from '../ContentDetail/ContentDetail';
+import Paragraph from '../Paragraph/Paragraph';
 
 const StyledHome = styled.div`
   position: relative;
@@ -30,10 +31,19 @@ function Home(): JSX.Element {
             transform: 'translate(-50%, -50%)',
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          <Paragraph
+            styles={{
+              fontSize: '1.25em',
+              color: '#ffcb74',
+              letterSpacing: '0.05em',
+              textAlign: 'center',
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </Paragraph>
         </ContentDetail>
       </ContentCard>
       <ContentCard />

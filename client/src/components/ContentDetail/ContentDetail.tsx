@@ -1,12 +1,7 @@
-import styled from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
 
 interface ContentDetailProps {
-  styles?: {
-    position?: string;
-    top?: string;
-    left?: string;
-    transform?: string;
-  };
+  styles?: CSSProperties;
   children?: React.ReactNode;
 }
 
@@ -17,23 +12,12 @@ const StyledContentDetail = styled.div<ContentDetailProps>`
   transform: ${({ styles }) => styles?.transform};
 `;
 
-const StyledParagraph = styled.p`
-  font-size: 1.25em;
-  color: #ffcb74;
-  letter-spacing: 0.05em;
-  text-align: center;
-`;
-
 function ContentDetail({ styles, children }: ContentDetailProps): JSX.Element {
-  return (
-    <StyledContentDetail styles={styles}>
-      <StyledParagraph>{children}</StyledParagraph>
-    </StyledContentDetail>
-  );
+  return <StyledContentDetail styles={styles}>{children}</StyledContentDetail>;
 }
 
 ContentDetail.defaultProps = {
-  styles: {},
+  styles: null,
   children: null,
 };
 
