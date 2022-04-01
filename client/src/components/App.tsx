@@ -9,7 +9,7 @@ import SoundBar from './SoundBar/Soundbar';
 import About from './About/About';
 
 const StyledApp = styled(motion.div)`
-  background-color: #111111;
+  background-color: #00020d;
   font-family: oswald, sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -28,7 +28,7 @@ function App(): JSX.Element {
       <StyledAppContainer
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ staggerChildren: 0.5, duration: 1 }}
+        transition={{ staggerChildren: 0.6, duration: 0.6 }}
       >
         <Background />
         <Navbar />
