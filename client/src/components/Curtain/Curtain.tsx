@@ -1,35 +1,53 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface NavigationProps {
   isOpen: boolean;
 }
 
-const StyledCurtain = styled.section<NavigationProps>`
+const StyledCurtain = styled(motion.section)`
   position: fixed;
   top: 0;
   right: 0;
-  bottom: ${({ isOpen }) => (isOpen ? 0 : 'auto')};
+  bottom: auto;
   left: 0;
   z-index: 1;
-  height: ${({ isOpen }) => (isOpen ? '100vh' : '120px')};
-  width: 100%;
+  height: 120px;
   background-image: linear-gradient(
     to bottom,
-    #111111 0%,
-    #111111 35%,
-    rgba(17, 17, 17, 0.95) 41%,
-    rgba(17, 17, 17, 0.83) 51%,
-    rgba(17, 17, 17, 0.12) 89%,
-    rgba(17, 17, 17, 0.03) 96%,
-    rgba(17, 17, 17, 0) 100%
+    #00020d 0%,
+    #00020d 35%,
+    rgba(0, 2, 13, 0.95) 41%,
+    rgba(0, 2, 13, 0.83) 51%,
+    rgba(0, 2, 13, 0.12) 89%,
+    rgba(0, 2, 13, 0.03) 96%,
+    rgba(0, 2, 13, 0) 100%
   );
-  opacity: ${({ isOpen }) => (isOpen ? 0.9 : 1)};
-  ${({ isOpen }) => (isOpen ? 'background-color: #111111' : '')};
-  transition: all 666ms;
+  opacity: 1;
 `;
 
+const variants = {
+  open: {
+    bottom: 0,
+    height: '100vh',
+    opacity: 0.9,
+    backgroundColor: '#00020d',
+  },
+  closed: {
+    bottom: 'auto',
+    height: '120px',
+    opacity: 1,
+  },
+};
+
 function Curtain({ isOpen }: NavigationProps): JSX.Element {
-  return <StyledCurtain isOpen={isOpen} />;
+  return (
+    <StyledCurtain
+      animate={isOpen ? 'open' : 'closed'}
+      variants={variants}
+      transition={{ duration: 0.6 }}
+    />
+  );
 }
 
 export default Curtain;
