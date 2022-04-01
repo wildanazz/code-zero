@@ -1,11 +1,6 @@
 {
   "background": {
-    "color": {
-      "value": "#111111"
-    },
-    "position": "50% 50%",
-    "repeat": "no-repeat",
-    "size": "20%"
+    "image": "-webkit-radial-gradient(bottom, #10181f, #00020d)"
   },
   "interactivity": {
     "events": {
