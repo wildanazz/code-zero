@@ -1,12 +1,21 @@
 import { IoMenu, IoClose } from 'react-icons/io5';
-import styled, { css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+import { motion } from 'framer-motion';
 
-interface NavigationProps {
+interface ToggleProps {
   isOpen: boolean;
   handleToggle(): void;
 }
 
-const StyledToggle = styled.div`
+const pulse = keyframes`
+0%{
+    box-shadow: #2f2f2f 0 0 0 0;
+}
+75%{
+  box-shadow: #2f2f2f00 0 0 0 16px;
+}`;
+
+const StyledToggle = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,15 +27,20 @@ const StyledToggle = styled.div`
   cursor: pointer;
 
   :hover {
-    background-color: rgba(47, 47, 47, 1);
+    background-color: #2f2f2f;
     border-radius: 50px;
     transition: all 0.2s ease-out;
+    animation: ${pulse} 1500ms infinite;
+  }
+
+  :active {
+    scale: 0.9;
   }
 `;
 
 const IconStyles = css`
-  font-size: 3rem;
   color: #ffcb74;
+  font-size: 3rem;
   border-radius: 50px;
 `;
 
@@ -38,7 +52,7 @@ const StyledIoClose = styled(IoClose)`
   ${IconStyles}
 `;
 
-function Toggle({ isOpen, handleToggle }: NavigationProps): JSX.Element {
+function Toggle({ isOpen, handleToggle }: ToggleProps): JSX.Element {
   return (
     <StyledToggle role="menuitem" tabIndex={0} onClick={handleToggle}>
       {isOpen ? <StyledIoClose /> : <StyledIoMenu />}
