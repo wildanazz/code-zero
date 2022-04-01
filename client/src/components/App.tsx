@@ -5,7 +5,7 @@ import Background from './Background/Background';
 import Navbar from './Navbar/Navbar';
 import Identity from './Identity/Identity';
 import Home from './Home/Home';
-import SoundBar from './SoundBar/Soundbar';
+import Soundbar from './Soundbar/Soundbar';
 import About from './About/About';
 
 const StyledApp = styled(motion.div)`
@@ -37,7 +37,7 @@ function App(): JSX.Element {
           <Route path="about" element={<About />} />
         </Routes>
         <Identity />
-        <SoundBar />
+        <Soundbar />
       </StyledAppContainer>
     </StyledApp>
   );
