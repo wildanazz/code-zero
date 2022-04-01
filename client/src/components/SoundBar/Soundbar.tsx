@@ -10,7 +10,7 @@ const StyledSoundBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   left: 36px;
   bottom: 36px;
   z-index: 3;
@@ -45,14 +45,14 @@ const play = keyframes`
 }`;
 
 const Line = styled.span<SoundbarProps>`
-  background: #ffcb74;
-  border: 1px solid rgba(47, 47, 47, 1);
-  animation: ${play} 1s ease infinite;
-  animation-play-state: ${({ isActivated }) =>
-    isActivated ? 'running' : 'paused'};
   height: 1rem;
   width: 2px;
   margin: 0 0.1rem;
+  background: #ffcb74;
+  border: 1px solid #2f2f2f;
+  animation: ${play} 1s ease infinite;
+  animation-play-state: ${({ isActivated }) =>
+    isActivated ? 'running' : 'paused'};
 `;
 
 function SoundBar(): JSX.Element {
