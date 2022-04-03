@@ -19,7 +19,7 @@ const StyledApp = styled(motion.div)`
 const StyledAppContainer = styled(motion.div)`
   position: relative;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 `;
 
 function App(): JSX.Element {
