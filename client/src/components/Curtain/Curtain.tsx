@@ -11,7 +11,6 @@ const StyledCurtain = styled(motion.section)`
   right: 0;
   bottom: auto;
   left: 0;
-  z-index: 1;
   height: 120px;
   background-image: linear-gradient(
     to bottom,

@@ -1,58 +1,56 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import navigations from './navigations.js';
 import Curtain from '../Curtain/Curtain';
+import Identity from '../Identity/Identity';
 import Toggle from '../Toggle/Toggle';
 
-interface NavigationProps {
-  isOpen: boolean;
-}
-
-const StyledNavbar = styled.div<NavigationProps>`
+const StyledNavbar = styled(motion.div)`
   position: fixed;
   top: 0;
   right: 0;
-  bottom: ${({ isOpen }) => (isOpen ? 0 : '100vh')};
+  bottom: 100vh;
   left: 0;
-  z-index: 3;
-  transition: ${({ isOpen }) =>
-    isOpen
-      ? 'bottom 0ms cubic-bezier(0.6, -0.28, 0.735, 0.045)'
-      : 'bottom 444ms cubic-bezier(0.6, -0.28, 0.735, 0.045)'};
+  z-index: 2;
 `;
 
-const StyledMenu = styled.nav<NavigationProps>`
+const StyledMenu = styled(motion.nav)`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
   text-align: center;
-  pointer-events: ${({ isOpen }) => (isOpen ? 'all' : 'none')};
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transition: all 111ms ease-out 222ms;
 `;
 
 const StyledLink = styled(Link)`
   display: block;
   padding-left: 0.3em;
   margin: 10px 0;
-  color: rgba(255, 203, 116, 1);
+  color: #ffcb74;
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.3em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 444ms ease-out;
 
   :hover {
-    color: rgba(255, 203, 116, 1);
+    color: #ffcb74;
     border-radius: 50px;
     padding-left: 0.6em;
     letter-spacing: 0.6em;
   }
 `;
+
+const navbar = {
+  open: {
+    bottom: 0,
+  },
+  closed: {
+    bottom: '100vh',
+  },
+};
 
 function Navbar(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,16 +60,32 @@ function Navbar(): JSX.Element {
   };
 
   return (
-    <StyledNavbar isOpen={isOpen}>
+    <StyledNavbar
+      animate={isOpen ? 'open' : 'closed'}
+      variants={navbar}
+      transition={{
+        ease: [0.6, -0.28, 0.735, 0.045],
+        duration: 0.3,
+      }}
+    >
       <Curtain isOpen={isOpen} />
-      <StyledMenu isOpen={isOpen}>
-        {navigations.map((item) => {
-          return (
-            <StyledLink key={item.id} to={item.path}>
-              {item.title}
-            </StyledLink>
-          );
-        })}
+      <Identity isOpen={isOpen} handleToggle={handleToggle} />
+      <StyledMenu>
+        {isOpen &&
+          navigations.map((item) => {
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: item.delay }}
+              >
+                <StyledLink to={item.path} onClick={handleToggle}>
+                  {item.title}
+                </StyledLink>
+              </motion.div>
+            );
+          })}
       </StyledMenu>
       <Toggle isOpen={isOpen} handleToggle={handleToggle} />
     </StyledNavbar>

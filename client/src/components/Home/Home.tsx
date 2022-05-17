@@ -1,67 +1,53 @@
 import styled from 'styled-components';
-import Card from '../Card/Card';
-import Paragraph from '../Paragraph/Paragraph';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
-const StyledHome = styled.div`
+const StyledHome = styled(motion.div)`
   position: relative;
-  width: 100%;
-  z-index: 1;
-  padding: 0 20px;
-  margin: auto;
-  max-width: 60.625em;
   overflow-x: hidden;
+  z-index: 1;
+`;
+
+const StyledHomeContainer = styled(motion.div)`
+  padding: 0 20px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 60.625em;
+  padding-top: 320px;
 `;
 
 function Home(): JSX.Element {
+  const { scrollY } = useViewportScroll();
+  const y1 = useTransform(scrollY, [0, 300], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 300], [0, -100]);
+
   return (
     <StyledHome>
-      <Card
-        styles={{
-          position: 'relative',
-          height: '100vh',
-          width: '100%',
-        }}
-      >
-        <Card
-          styles={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+      <StyledHomeContainer>
+        <motion.div
+          style={{
+            y: y1,
+            x: -50,
+            width: '150px',
+            height: '150px',
+            borderRadius: '1em',
+            backgroundColor: 'salmon',
+            marginLeft: 'auto',
+            marginRight: 'auto',
           }}
-        >
-          <Paragraph
-            styles={{
-              fontSize: '1.25em',
-              color: '#ffcb74',
-              letterSpacing: '0.05em',
-              textAlign: 'center',
-            }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Paragraph>
-        </Card>
-      </Card>
-      <Card>
-        <Card styles={{ position: 'relative', minHeight: '100vh' }}>
-          <Paragraph
-            styles={{
-              fontSize: '1.25em',
-              color: '#ffcb74',
-              letterSpacing: '0.05em',
-              textAlign: 'center',
-            }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </Paragraph>
-        </Card>
-      </Card>
+        />
+        <motion.div
+          style={{
+            y: y2,
+            x: 50,
+            width: '150px',
+            height: '150px',
+            borderRadius: '1em',
+            backgroundColor: '#f9f07e',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        />
+      </StyledHomeContainer>
     </StyledHome>
   );
 }

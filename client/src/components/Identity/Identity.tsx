@@ -2,13 +2,17 @@ import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import logo from './logo.svg';
 
+interface IdentityProps {
+  isOpen: boolean;
+  handleToggle(): void;
+}
+
 const StyledIdentity = styled(Link)`
   position: fixed;
   top: 16px;
   left: 16px;
   height: 96px;
   width: 316px;
-  z-index: 3;
 `;
 
 const spin = keyframes`
@@ -59,7 +63,15 @@ const StyledType = styled.h1`
   animation: ${move} 8.4s linear infinite;
 `;
 
-function Identity(): JSX.Element {
+function Identity({ isOpen, handleToggle }: IdentityProps): JSX.Element {
+  if (isOpen) {
+    return (
+      <StyledIdentity to="/" onClick={handleToggle}>
+        <StyledMark src={logo} alt="logo" />
+        <StyledType>CODEZERO</StyledType>
+      </StyledIdentity>
+    );
+  }
   return (
     <StyledIdentity to="/">
       <StyledMark src={logo} alt="logo" />

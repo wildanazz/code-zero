@@ -10,10 +10,10 @@ const StyledSoundBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   left: 36px;
   bottom: 36px;
-  z-index: 3;
+  z-index: 2;
   cursor: pointer;
 
   & > *:nth-child(1) {

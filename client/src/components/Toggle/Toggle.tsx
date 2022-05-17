@@ -22,7 +22,6 @@ const StyledToggle = styled(motion.div)`
   position: absolute;
   top: 36px;
   right: 36px;
-  z-index: 3;
   border-radius: 50px;
   cursor: pointer;
 
