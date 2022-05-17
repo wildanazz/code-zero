@@ -34,12 +34,14 @@ const StyledLink = styled(Link)`
   letter-spacing: 0.3em;
   text-decoration: none;
   text-transform: uppercase;
+  transition-duration: 0.6s;
 
   :hover {
     color: #ffcb74;
     border-radius: 50px;
     padding-left: 0.6em;
     letter-spacing: 0.6em;
+    transition-duration: 0.6s;
   }
 `;
 
@@ -64,6 +66,7 @@ function Navbar(): JSX.Element {
       animate={isOpen ? 'open' : 'closed'}
       variants={navbar}
       transition={{
+        type: 'tween',
         ease: [0.6, -0.28, 0.735, 0.045],
         duration: 0.3,
       }}
