@@ -2,26 +2,55 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const StyledAbout = styled(motion.div)`
+  position: relative;
+`;
+
+const StyledContainer = styled(motion.div)`
+  padding: 0 20px;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 30em) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 48em) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 60.625em) {
+    max-width: 60.625em;
+  }
+
+  @media screen and (min-width: 75em) {
+    max-width: 60.625em;
+  }
+`;
+
+const StyledContent = styled(motion.div)`
+  position: relative;
+  height: 100vh;
+  width: 100%;
+`;
+
+const StyledContainerParagraph = styled(motion.div)`
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
+  text-align: justify;
 `;
 
-const StyledParagraph = styled(motion.p)`
-  color: #ffcb74;
-  font-size: 1.125em;
-  letter-spacing: 0.06em;
-  text-align: center;
+const aboutOne = `Heyo, I'm a fullstack developer located in Australia. 
+I love to create simple yet beautiful websites with great user experience.
 `;
+const aboutTwo = `I'm interested in the whole frontend stack Like trying new 
+things and building great projects. I'm an independent freelancer and blogger. 
+I love to write blogs and read books.`;
 
-const about = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.`;
+const aboutThree = `I believe everything is an Art when you put your 
+consciousness in it. You can connect with me via social links.`;
 
 const textVariants = {
   hidden: {
@@ -30,7 +59,10 @@ const textVariants = {
   visible: {
     opacity: 1,
     duration: 0.6,
-    transition: { delay: 0.6, staggerChildren: 0.006 },
+    transition: {
+      delay: 0.6,
+      staggerChildren: 0.006,
+    },
   },
 };
 
@@ -48,15 +80,37 @@ const letterVariants = {
 function About(): JSX.Element {
   return (
     <StyledAbout>
-      <StyledParagraph
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {about.split('').map((char) => {
-          return <motion.span variants={letterVariants}>{char}</motion.span>;
-        })}
-      </StyledParagraph>
+      <StyledContainer>
+        <StyledContent>
+          <StyledContainerParagraph>
+            <motion.p
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {aboutOne.split('').map((char) => {
+                return (
+                  <motion.span variants={letterVariants}>{char}</motion.span>
+                );
+              })}
+              <br />
+              <br />
+              {aboutTwo.split('').map((char) => {
+                return (
+                  <motion.span variants={letterVariants}>{char}</motion.span>
+                );
+              })}
+              <br />
+              <br />
+              {aboutThree.split('').map((char) => {
+                return (
+                  <motion.span variants={letterVariants}>{char}</motion.span>
+                );
+              })}
+            </motion.p>
+          </StyledContainerParagraph>
+        </StyledContent>
+      </StyledContainer>
     </StyledAbout>
   );
 }
