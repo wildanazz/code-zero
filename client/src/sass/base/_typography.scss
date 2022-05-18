@@ -3,3 +3,9 @@ body {
   font-weight: 300;
   font-style: normal;
 }
+
+p {
+  color: $font-color;
+  font-size: 1.2em;
+  letter-spacing: 0.03em;
+}
