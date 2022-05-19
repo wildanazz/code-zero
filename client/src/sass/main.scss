@@ -1,8 +1,10 @@
-@import 
+@import
   "abstracts/variables";
 
-@import 
+@import
+  "vendors/normalize";
+
+@import
   "base/base",
   "base/fonts",
-  "base/reset",
   "base/typography";
