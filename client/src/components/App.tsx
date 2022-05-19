@@ -4,7 +4,6 @@ import Background from './Background/Background';
 import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import About from './About/About';
-import Tools from './Tooling/Tools';
 import SoundBar from './SoundBar/SoundBar';
 
 function App(): JSX.Element {
@@ -19,7 +18,6 @@ function App(): JSX.Element {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="tools" element={<Tools />} />
       </Routes>
       <SoundBar />
     </motion.div>
