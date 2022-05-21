@@ -1,8 +1,6 @@
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import TextScramble from './TextScramble.js';
 
 const StyledHome = styled(motion.div)`
   position: relative;
@@ -48,11 +46,8 @@ const StyledHeaderTitleContainer = styled(motion.div)`
 
 const StyledHeaderTitle = styled.p`
   transform: none;
-  font-size: 7.5em;
-  color: #ffcb74;
+  font-size: 8rem;
   font-family: bungee, sans-serif;
-  font-weight: 800;
-  font-style: normal;
 `;
 
 const StyledContent = styled(motion.div)`
@@ -62,23 +57,8 @@ const StyledContent = styled(motion.div)`
 
 const StyledParagraph = styled(motion.p)`
   color: #ffcb74;
-  font-size: 1.125em;
-  letter-spacing: 0.06em;
+  font-size: 1.6em;
 `;
-
-function scrambleText(): void {
-  const phrases = ['Think', 'outside', 'the circle.', 'CODEZERO'];
-  const el = document.querySelector('.title');
-  const fx = new TextScramble(el);
-  let counter = 0;
-  const next = (): void => {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 3 * 1000);
-    });
-    counter = (counter + 1) % phrases.length;
-  };
-  next();
-}
 
 const variants = {
   visible: {
@@ -93,18 +73,34 @@ const variants = {
   },
 };
 
+const cardVariants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: 50,
+    rotate: -10,
+    transition: {
+      type: 'spring',
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
 function Home(): JSX.Element {
   const [ref, inView] = useInView({
     threshold: 0.5,
     triggerOnce: false,
   });
 
-  useEffect(() => {
-    scrambleText();
-  }, []);
-
   return (
-    <StyledHome>
+    <StyledHome
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2 }}
+      exit={{ opacity: 0 }}
+    >
       <StyledContainer>
         <StyledHeader
           animate={inView ? 'visible' : 'hidden'}
@@ -116,10 +112,14 @@ function Home(): JSX.Element {
           ref={ref}
         >
           <StyledHeaderTitleContainer>
-            <StyledHeaderTitle className="title" />
+            <StyledHeaderTitle>CODEZERO</StyledHeaderTitle>
           </StyledHeaderTitleContainer>
         </StyledHeader>
-        <StyledContent>
+        <StyledContent
+          viewport={{ once: false, amount: 0.2 }}
+          initial="offscreen"
+          whileInView="onscreen"
+        >
           <motion.div
             style={{
               width: '150px',
@@ -130,45 +130,7 @@ function Home(): JSX.Element {
               marginRight: 'auto',
             }}
           />
-          <StyledParagraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </StyledParagraph>
-          <motion.div
-            style={{
-              width: '150px',
-              height: '150px',
-              borderRadius: '1em',
-              backgroundColor: '#f9f07e',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          />
-          <StyledParagraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </StyledParagraph>
-          <motion.div
-            style={{
-              width: '150px',
-              height: '150px',
-              borderRadius: '1em',
-              backgroundColor: 'salmon',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          />
-          <StyledParagraph>
+          <StyledParagraph variants={cardVariants}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
