@@ -1,8 +1,11 @@
 /// @type Color
-$background-color: #00020d;
+$background: -webkit-radial-gradient(bottom, #10181f, #00020d);
 
 /// @type Color
-$font-color: #ffcb74;
+$primary-color: #ffcb74;
+
+/// @type Color
+$secondary-color: #10181f;
 
 /// @type String
 $font-path: "../../fonts/";

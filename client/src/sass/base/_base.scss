@@ -1,3 +1,15 @@
+html {
+  scrollbar-color: $primary-color $secondary-color;
+
+  ::-webkit-scrollbar-thumb {
+    background: $primary-color;
+  }
+  
+  ::-webkit-scrollbar {
+    background: $secondary-color;
+  }
+}
+
 body {
-  background: -webkit-radial-gradient(bottom, #10181f, $background-color) fixed;
+  background: $background fixed;
 }
