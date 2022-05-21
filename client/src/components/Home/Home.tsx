@@ -83,7 +83,7 @@ const cardVariants = {
     transition: {
       type: 'spring',
       bounce: 0.4,
-      duration: 0.8,
+      duration: 0.6,
     },
   },
 };
@@ -98,7 +98,7 @@ function Home(): JSX.Element {
     <StyledHome
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1.2 }}
+      transition={{ duration: 0.6 }}
       exit={{ opacity: 0 }}
     >
       <StyledContainer>
