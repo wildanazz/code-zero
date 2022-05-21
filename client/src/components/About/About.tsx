@@ -39,74 +39,27 @@ const StyledContainerParagraph = styled(motion.div)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  text-align: justify;
 `;
-
-const aboutOne = `Heyo, I'm a fullstack developer located in Australia. 
-I love to create simple yet beautiful websites with great user experience.
-`;
-const aboutTwo = `I'm interested in the whole frontend stack Like trying new 
-things and building great projects. I'm an independent freelancer and blogger. 
-I love to write blogs and read books.`;
-
-const aboutThree = `I believe everything is an Art when you put your 
-consciousness in it. You can connect with me via social links.`;
-
-const textVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    duration: 0.6,
-    transition: {
-      delay: 0.6,
-      staggerChildren: 0.006,
-    },
-  },
-};
-
-const letterVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
 
 function About(): JSX.Element {
   return (
-    <StyledAbout>
+    <StyledAbout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2 }}
+      exit={{ opacity: 0 }}
+    >
       <StyledContainer>
         <StyledContent>
           <StyledContainerParagraph>
-            <motion.p
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {aboutOne.split('').map((char) => {
-                return (
-                  <motion.span variants={letterVariants}>{char}</motion.span>
-                );
-              })}
-              <br />
-              <br />
-              {aboutTwo.split('').map((char) => {
-                return (
-                  <motion.span variants={letterVariants}>{char}</motion.span>
-                );
-              })}
-              <br />
-              <br />
-              {aboutThree.split('').map((char) => {
-                return (
-                  <motion.span variants={letterVariants}>{char}</motion.span>
-                );
-              })}
+            <motion.p>
+              Heyo, I&apos;m a fullstack developer located in Australia. I love
+              to create simple yet beautiful websites with great user
+              experience. I&apos;m interested in the whole frontend stack Like
+              trying new things and building great projects. I&apos;m an
+              independent freelancer and blogger. I love to write blogs and read
+              books. I believe everything is an Art when you put your
+              consciousness in it. You can connect with me via social links.
             </motion.p>
           </StyledContainerParagraph>
         </StyledContent>
