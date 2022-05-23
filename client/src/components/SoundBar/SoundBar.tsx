@@ -13,7 +13,6 @@ const StyledSoundBar = styled.div`
   position: fixed;
   left: 36px;
   bottom: 36px;
-  z-index: 1;
   cursor: pointer;
 
   & > *:nth-child(1) {

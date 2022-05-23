@@ -13,7 +13,6 @@ const StyledNavbar = styled(motion.div)`
   right: 0;
   bottom: 100vh;
   left: 0;
-  z-index: 2;
 `;
 
 const StyledMenu = styled(motion.nav)`

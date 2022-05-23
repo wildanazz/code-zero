@@ -12,7 +12,6 @@ const StyledSocial = styled.div`
   position: fixed;
   right: 36px;
   bottom: 0;
-  z-index: 1;
 
   & > *:not(:last-child) {
     margin: 8px 0;
